@@ -42,6 +42,7 @@
     ]
   },
   "scripts": {
+    "dependencies": "depcheck",
     "readme": "documentation readme README.md -s \"API\" src/trace.js",
     "lint": "npm run lint:src && npm run lint:jsdoc",
     "lint:src": "eslint src/*.js",

@@ -12,7 +12,6 @@ const external = Object.keys(pkg.dependencies)
 module.exports = {
   external,
   globals: {
-    [`ramda`]: `R`
   },
   plugins: [
     progress(),

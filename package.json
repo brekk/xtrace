@@ -42,6 +42,7 @@
     ]
   },
   "scripts": {
+    "dependencies": "depcheck",
     "readme": "documentation readme README.md -s \"API\" src/trace.js",
     "lint": "npm run lint:src && npm run lint:jsdoc",
     "lint:src": "eslint src/*.js",
@@ -75,15 +76,15 @@
     "husky": "^0.14.2",
     "istanbul": "0.4.x",
     "nyc": "^11.0.3",
-    "rollup": "^0.39.2",
+    "rollup": "^0.43.0",
     "rollup-plugin-babili": "^3.1.0",
     "rollup-plugin-buble": "^0.15.0",
-    "rollup-plugin-cleanup": "^0.1.4",
-    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-cleanup": "^1.0.1",
+    "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-istanbul": "^1.1.0",
-    "rollup-plugin-json": "^2.1.0",
-    "rollup-plugin-node-resolve": "^2.0.0",
-    "rollup-plugin-progress": "^0.2.0"
+    "rollup-plugin-json": "^2.3.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-progress": "^0.4.0"
   },
   "repository": "https://github.com/brekk/xtrace",
   "author": "brekk"

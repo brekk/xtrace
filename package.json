@@ -43,8 +43,8 @@
   },
   "scripts": {
     "lint": "eslint src/*.js",
-    "test": "ava src/*.spec.js",
-    "covered": "nyc npm run test",
+    "test:ava": "ava src/*.spec.js",
+    "test": "nyc npm run test:ava",
     "build": "npm run build:main",
     "build:main": "rollup -c config/rollup.config.main.js",
     "due-diligence": "npm run lint && npm run test && npm run build",

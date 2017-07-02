@@ -42,7 +42,6 @@
     ]
   },
   "scripts": {
-    "docs": "documentation build src/** -f html -o docs -a public -a private --sort-order alpha",
     "readme": "documentation readme README.md -s \"API\" src/trace.js",
     "lint": "npm run lint:src && npm run lint:jsdoc",
     "lint:src": "eslint src/*.js",
@@ -51,9 +50,9 @@
     "test:ava": "ava src/*.spec.js",
     "build": "npm run build:main",
     "build:main": "rollup -c config/rollup.config.main.js",
-    "due-diligence": "npm run lint && npm run test && npm run build && npm run readme && npm run docs",
+    "due-diligence": "npm run lint && npm run test && npm run build && npm run readme",
     "precommit": "npm run due-diligence",
-    "postinstall": "npm run due-diligence"
+    "postinstall": "npm run build"
   },
   "dependencies": {},
   "devDependencies": {

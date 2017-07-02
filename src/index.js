@@ -1,2 +1,2 @@
 export * from './curry'
-export * from './xtrace'
+export * from './trace'

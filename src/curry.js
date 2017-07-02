@@ -4,8 +4,9 @@ export const PLACEHOLDER = `🍛`
  * count how many placeholders are in a given list of arguments
  * @method countNonPlaceholdersFn
  * @param {function} test - a test function
- * @param {array} args - a list of parameters to test
+ // * @param {Array} args - a list of parameters to test
  * @returns {number} - total arguments
+ * @private
  */
 const countNonPlaceholdersFn = (test) => (args) => args.reduce(
   (count, x) => (
@@ -18,17 +19,19 @@ const countNonPlaceholdersFn = (test) => (args) => args.reduce(
  * manually curried Array.prototype.some
  * @method some
  * @param {function} f - function to pass to [some]
- * @param {Array} xs - an array or something with [some] method
+ // * @param {Array} xs - an Array or something with [some] method
  * @returns {boolean} - the result
+ * @private
  */
 const some = (f) => (xs) => xs.some(f)
 
 /**
  * @method mergeParams
  * @param {function} test - something to test whether a given argument is a placeholder
- * @param {Array} a - first argument list to compare
- * @param {Array} b - second argument list to compare
+ // * @param {Array} a - first argument list to compare
+ // * @param {Array} b - second argument list to compare
  * @returns {Array} - merged argument lists
+ * @private
  */
 const mergeParamsByTest = (test) => (a, b) => a.map(
   (y) => (
@@ -41,8 +44,9 @@ const mergeParamsByTest = (test) => (a, b) => a.map(
 /**
  * @method curryPowder
  * @param {function} test - a function which asserts whether a given parameter is a placeholder
- * @param {function} fn - a function to be curried
+ // * @param {function} fn - a function to be curried
  * @returns {function} - a curried function
+ * @private
  */
 export const curryPowder = (test) => (fn) => {
   const countNonPlaceholders = countNonPlaceholdersFn(test)
@@ -58,6 +62,7 @@ export const curryPowder = (test) => (fn) => {
       }
     )
   }
+  // istanbul ignore next
   // eslint-disable-next-line fp/no-mutation
   curried.toString = () => (
     fn.name ? fn.name : fn.toString()
@@ -69,8 +74,9 @@ export const curryPowder = (test) => (fn) => {
  * test whether two symbols match
  * @method symbolTest
  * @param {*} x - symbol lookup x
- * @param {*} y - symbol lookup y
+ // * @param {*} y - symbol lookup y
  * @returns {boolean} - whether the two symbols match
+ * @private
  */
 export const symbolTest = (x) => (y) => Symbol.for(y) === Symbol.for(x)
 
@@ -78,8 +84,14 @@ export const symbolTest = (x) => (y) => Symbol.for(y) === Symbol.for(x)
  * @method currify
  * @param {function} test - a function that tests for placeholder-iness
  * @returns {function} - function which can curry other functions
+ * @private
  */
 export const curryify = (test) => curryPowder(test, curryPowder)
 
-// we export `curry` with an automatic symbolTest for PLACEHOLDER in place
+/**
+ * @method curry
+ * @param {function} fn - any function
+ * @returns {function} - a curried function
+ * @private
+ */
 export const curry = curryify(symbolTest(PLACEHOLDER))

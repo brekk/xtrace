@@ -1,14 +1,16 @@
 import test from 'ava'
 import {
   PLACEHOLDER as $,
-  curry,
-  sideEffect
-} from './index'
+  curry
+} from './curry'
+import {
+  sideEffect,
+  I
+} from './trace'
 
 test(`sideEffect can function as a simple tagged iteratee`, (t) => {
   t.plan(6)
   const is = curry((a, b) => t.is(a, b))
-  const I = (k) => k
   t.is(typeof sideEffect, `function`)
   const logger = sideEffect($, $, I, $)
   const inputs = [

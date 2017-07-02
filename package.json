@@ -1,6 +1,6 @@
 {
   "name": "xtrace",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "trace compositions",
   "license": "ISC",
   "main": "xtrace.js",

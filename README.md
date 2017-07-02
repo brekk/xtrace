@@ -100,38 +100,6 @@ trace is the same as xtrace, only we applied the first parameter as console.log,
 
 Returns **any** whatever input is
 
-##### countNonPlaceholdersFn
-
-count how many placeholders are in a given list of arguments
-
-**Parameters**
-
--   `test` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a test function
--   `args` **[array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** a list of parameters to test
-
-Returns **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** total arguments
-
-##### some
-
-manually curried Array.prototype.some
-
-**Parameters**
-
--   `f` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function to pass to [some]
--   `xs` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** an array or something with [some] method
-
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** the result
-
-##### mergeParams
-
-**Parameters**
-
--   `test` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** something to test whether a given argument is a placeholder
--   `a` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** first argument list to compare
--   `b` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** second argument list to compare
-
-Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** merged argument lists
-
 ##### curryPowder
 
 **Parameters**

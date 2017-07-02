@@ -10,7 +10,7 @@ import {curry, PLACEHOLDER as $} from './curry'
  * @param {function} inspect - function which wraps the second value to pass to the side effect
  * @param {*} input - the return value, and the value passed to the inspect function
  * @returns {*} - whatever input is
- * @exported true
+ * @public
  */
 export const sideEffect = curry(
   function __sideEffect(effect, tag, inspect, input) {
@@ -33,7 +33,7 @@ export const I = (x) => x
  * @param {*} tag - first value to pass to the side effect
  * @param {*} input - the return value, and the value passed to the side effect
  * @returns {*} - whatever input is
- * @exported true
+ * @public
  */
 export const xtrace = sideEffect($, $, I, $)
 
@@ -45,6 +45,6 @@ export const xtrace = sideEffect($, $, I, $)
  * @param {*} tag - first value to pass to the console.log
  * @param {*} input - the return value, and the value passed to the console.log
  * @returns {*} - whatever input is
- * @exported true
+ * @public
  */
 export const trace = xtrace(console.log) // eslint-disable-line no-console

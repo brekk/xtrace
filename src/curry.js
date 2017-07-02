@@ -58,6 +58,7 @@ export const curryPowder = (test) => (fn) => {
       }
     )
   }
+  // istanbul ignore next
   // eslint-disable-next-line fp/no-mutation
   curried.toString = () => (
     fn.name ? fn.name : fn.toString()

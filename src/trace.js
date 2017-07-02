@@ -18,7 +18,7 @@ export const sideEffect = curry(
 )
 
 // identity function
-const I = (x) => x
+export const I = (x) => x
 
 // xtrace is the same as sideEffect, only we dropped the inspect parameter by passing identity
 export const xtrace = sideEffect($, $, I, $)

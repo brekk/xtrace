@@ -10,9 +10,41 @@
     ],
     "babel": "inherit"
   },
+  "nyc": {
+    "statements": 90,
+    "branches": 90,
+    "functions": 90,
+    "lines": 90,
+    "reporter": [
+      "lcov",
+      "json",
+      "html",
+      "text",
+      "text-summary"
+    ],
+    "exclude": [
+      "node_modules",
+      "config",
+      "coverage",
+      "src/*.spec.js",
+      "src/index.js",
+      "xtrace.js",
+      "xtrace.es.js"
+    ],
+    "include": [
+      "src/*.js",
+      "!src/*.spec.js"
+    ],
+    "all": true,
+    "check-coverage": true,
+    "require": [
+      "babel-register"
+    ]
+  },
   "scripts": {
     "lint": "eslint src/*.js",
     "test": "ava src/*.spec.js",
+    "covered": "nyc npm run test",
     "build": "npm run build:main",
     "build:main": "rollup -c config/rollup.config.main.js",
     "due-diligence": "npm run lint && npm run test && npm run build",

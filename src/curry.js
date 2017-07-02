@@ -46,7 +46,7 @@ const mergeParamsByTest = (test) => (a, b) => a.map(
  * @param {function} test - a function which asserts whether a given parameter is a placeholder
  * @param {function} fn - a function to be curried
  * @returns {function} - a curried function
- * @public
+ * @private
  */
 export const curryPowder = (test) => (fn) => {
   const countNonPlaceholders = countNonPlaceholdersFn(test)
@@ -76,7 +76,7 @@ export const curryPowder = (test) => (fn) => {
  * @param {*} x - symbol lookup x
  * @param {*} y - symbol lookup y
  * @returns {boolean} - whether the two symbols match
- * @public
+ * @private
  */
 export const symbolTest = (x) => (y) => Symbol.for(y) === Symbol.for(x)
 
@@ -84,7 +84,7 @@ export const symbolTest = (x) => (y) => Symbol.for(y) === Symbol.for(x)
  * @method currify
  * @param {function} test - a function that tests for placeholder-iness
  * @returns {function} - function which can curry other functions
- * @public
+ * @private
  */
 export const curryify = (test) => curryPowder(test, curryPowder)
 
@@ -92,6 +92,6 @@ export const curryify = (test) => curryPowder(test, curryPowder)
  * @method curry
  * @param {function} fn - any function
  * @returns {function} - a curried function
- * @public
+ * @private
  */
 export const curry = curryify(symbolTest(PLACEHOLDER))

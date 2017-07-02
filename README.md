@@ -100,42 +100,6 @@ trace is the same as xtrace, only we applied the first parameter as console.log,
 
 Returns **any** whatever input is
 
-##### curryPowder
-
-**Parameters**
-
--   `test` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a function which asserts whether a given parameter is a placeholder
--   `fn` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a function to be curried
-
-Returns **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a curried function
-
-##### symbolTest
-
-test whether two symbols match
-
-**Parameters**
-
--   `x` **any** symbol lookup x
--   `y` **any** symbol lookup y
-
-Returns **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** whether the two symbols match
-
-##### currify
-
-**Parameters**
-
--   `test` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a function that tests for placeholder-iness
-
-Returns **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** function which can curry other functions
-
-##### curry
-
-**Parameters**
-
--   `fn` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** any function
-
-Returns **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a curried function
-
 #### Similar efforts:
 
 -   `composition-trace` - <https://github.com/stevemao/composition-trace>

@@ -6,6 +6,7 @@ export const PLACEHOLDER = `🍛`
  * @param {function} test - a test function
  * @param {array} args - a list of parameters to test
  * @returns {number} - total arguments
+ * @exported false
  */
 const countNonPlaceholdersFn = (test) => (args) => args.reduce(
   (count, x) => (
@@ -20,6 +21,7 @@ const countNonPlaceholdersFn = (test) => (args) => args.reduce(
  * @param {function} f - function to pass to [some]
  * @param {Array} xs - an array or something with [some] method
  * @returns {boolean} - the result
+ * @exported false
  */
 const some = (f) => (xs) => xs.some(f)
 
@@ -29,6 +31,7 @@ const some = (f) => (xs) => xs.some(f)
  * @param {Array} a - first argument list to compare
  * @param {Array} b - second argument list to compare
  * @returns {Array} - merged argument lists
+ * @exported false
  */
 const mergeParamsByTest = (test) => (a, b) => a.map(
   (y) => (
@@ -43,6 +46,7 @@ const mergeParamsByTest = (test) => (a, b) => a.map(
  * @param {function} test - a function which asserts whether a given parameter is a placeholder
  * @param {function} fn - a function to be curried
  * @returns {function} - a curried function
+ * @exported true
  */
 export const curryPowder = (test) => (fn) => {
   const countNonPlaceholders = countNonPlaceholdersFn(test)
@@ -72,6 +76,7 @@ export const curryPowder = (test) => (fn) => {
  * @param {*} x - symbol lookup x
  * @param {*} y - symbol lookup y
  * @returns {boolean} - whether the two symbols match
+ * @exported true
  */
 export const symbolTest = (x) => (y) => Symbol.for(y) === Symbol.for(x)
 
@@ -79,8 +84,14 @@ export const symbolTest = (x) => (y) => Symbol.for(y) === Symbol.for(x)
  * @method currify
  * @param {function} test - a function that tests for placeholder-iness
  * @returns {function} - function which can curry other functions
+ * @exported true
  */
 export const curryify = (test) => curryPowder(test, curryPowder)
 
-// we export `curry` with an automatic symbolTest for PLACEHOLDER in place
+/**
+ * @method curry
+ * @param {function} fn - any function
+ * @returns {function} - a curried function
+ * @exported true
+ */
 export const curry = curryify(symbolTest(PLACEHOLDER))

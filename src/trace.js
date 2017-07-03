@@ -1,4 +1,4 @@
-import {curry, PLACEHOLDER as $} from './curry'
+import {curry, PLACEHOLDER as $} from 'katsu-curry'
 
 /**
  * `import {sideEffect} from 'xtrace'`
@@ -21,8 +21,9 @@ export const sideEffect = curry(
   }
 )
 
+// istanbul ignore next
 // identity function
-export const I = (x) => x
+const I = (x) => x
 
 /**
  * `import {xtrace} from 'xtrace'`

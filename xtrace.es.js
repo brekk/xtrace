@@ -1,1 +1,1 @@
-import{PLACEHOLDER,curry}from'katsu-curry';var sideEffect=curry(function(a,b,c,d){return a(b,c(d)),d}),I=function(a){return a},xtrace=sideEffect(PLACEHOLDER,PLACEHOLDER,I,PLACEHOLDER),trace=xtrace(function(){});export{sideEffect,xtrace,trace};
+import{PLACEHOLDER,curry}from'katsu-curry';var PLACEHOLDER$1=PLACEHOLDER,$=PLACEHOLDER,sideEffect=curry(function(a,b,c,d){return a(b,c(d)),d}),I=function(a){return a},xtrace=sideEffect(PLACEHOLDER,PLACEHOLDER,I,PLACEHOLDER),trace=xtrace(function(){});export{PLACEHOLDER$1 as PLACEHOLDER,$,sideEffect,xtrace,trace};

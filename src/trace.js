@@ -1,4 +1,7 @@
-import {curry, PLACEHOLDER as $} from 'katsu-curry'
+import {curry, PLACEHOLDER as __} from 'katsu-curry'
+
+export const PLACEHOLDER = __
+export const $ = __
 
 /**
  * `import {sideEffect} from 'xtrace'`
@@ -36,7 +39,7 @@ const I = (x) => x
  * @returns {*} - whatever input is
  * @public
  */
-export const xtrace = sideEffect($, $, I, $)
+export const xtrace = sideEffect(__, __, I, __)
 
 /**
  * `import {trace} from 'xtrace'`

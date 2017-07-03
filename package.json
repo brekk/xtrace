@@ -4,6 +4,7 @@
   "description": "trace compositions",
   "license": "ISC",
   "main": "xtrace.js",
+  "reveal": true,
   "ava": {
     "require": [
       "babel-register"
@@ -55,7 +56,9 @@
     "precommit": "npm run due-diligence",
     "postinstall": "npm run build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "katsu-curry": "^0.0.1"
+  },
   "devDependencies": {
     "ava": "^0.20.0",
     "babel-plugin-istanbul": "^4.1.4",

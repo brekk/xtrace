@@ -2,17 +2,18 @@ import test from 'ava'
 import {
   PLACEHOLDER as $,
   curry
-} from './curry'
+} from 'katsu-curry'
 import {
-  sideEffect,
-  I
+  sideEffect
 } from './trace'
 
 test(`sideEffect can function as a simple tagged iteratee`, (t) => {
-  t.plan(6)
+  t.plan(7)
+  const I = (x) => x
   const is = curry((a, b) => t.is(a, b))
   t.is(typeof sideEffect, `function`)
-  const logger = sideEffect($, $, I, $)
+  const logger = sideEffect(is, $, I, $)
+  t.is(typeof logger, `function`)
   const inputs = [
     [`a`, `a0`],
     [`b`, `b1`],
@@ -21,6 +22,6 @@ test(`sideEffect can function as a simple tagged iteratee`, (t) => {
     [`e`, `e4`]
   ]
   inputs.map(([k, v], i) => {
-    logger(is, k + i, v)
+    logger(k + i, v)
   })
 })

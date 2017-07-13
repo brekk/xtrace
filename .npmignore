@@ -1,0 +1,8 @@
+.nyc_output
+config
+coverage
+logo.svg
+src
+circle.yml
+CODE_OF_CONDUCT.md
+README.md

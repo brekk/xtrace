@@ -3,7 +3,7 @@ import {
   curry,
   I
 } from 'katsu-curry'
-import * as D from './debug'
+import D from './debug'
 
 const zort = (x) => x.sort() // eslint-disable-line fp/no-mutating-methods
 
@@ -24,13 +24,10 @@ test(`exports`, (t) => {
       Object.keys(D)
     ), zort(
       [
-        `__debugEffect`,
-        `__debugTrace`,
-        `__makeInspectors`,
-        `debugEffect`,
-        `debugTrace`,
-        `debugWrap`,
-        `makeInspectors`,
+        `custom`,
+        `effect`,
+        `generate`,
+        `trace`,
         `wrap`
       ]
     )
@@ -54,10 +51,10 @@ pipe(
   compositionLog(`output`) // partially apply the aTag
 )
 
-# augmented with __debugEffect (this is intended to work with the debug module, but testing
+# augmented with __effect (this is intended to work with the debug module, but testing
 side-effects is hard):
 
-const debugEffect = __debugEffect(require('debug'))
+const debugEffect = __effect(require('debug'))
 const myLoggers = debugEffect([`ns:1`, `ns:2`, `ns:3`])
 
 const [log1, log2, log3] = myLoggers
@@ -67,21 +64,26 @@ pipe(
 )
  */
 
-test(`__debugEffect - only the __ prefixed functions are testable`, (t) => {
+test.cb(`__effect - only the __ prefixed functions are testable`, (t) => {
   t.plan(4)
   const equal = tEqual(t)
+  const A_CONSTANT = Math.round(Math.random() * 1e6)
+  const B_CONSTANT = Math.round(Math.random() * 1e6)
+  let count = 0 // eslint-disable-line fp/no-let
   // eslint-disable-next-line fp/no-rest-parameters
   const pseudoDebug = (...args) => (...bargs) => {
+    count += 1 // eslint-disable-line fp/no-mutation
     equal(args[0], `a`)
-    equal(bargs, [`AAAAA`, `BBBBB`])
+    equal(bargs, [A_CONSTANT, B_CONSTANT])
+    if (count > 1) t.end()
   }
-  // we can derive __debugEffect from __makeInspectors, which will give us 100% coverage
-  // const debugInspectors = D.__debugEffect(pseudoDebug)
-  const debugInspectors = D.__makeInspectors(pseudoDebug, true)
+  // we can derive __effect from __generate, which will give us 100% coverage
+  // const debugInspectors = D.custom.effect(pseudoDebug)
+  const debugInspectors = D.custom.generate(pseudoDebug, true)
   const tags = `abc`.split(``)
   const inspectors = debugInspectors(tags)
-  inspectors[0](`AAAAA`, I, `BBBBB`)
-  const debugLoggers = D.__makeInspectors(pseudoDebug, false)
+  inspectors[0](A_CONSTANT, I, B_CONSTANT)
+  const debugLoggers = D.custom.generate(pseudoDebug, false)
   const loggers = debugLoggers(tags)
-  loggers[0](`AAAAA`, `BBBBB`)
+  loggers[0](A_CONSTANT, B_CONSTANT)
 })

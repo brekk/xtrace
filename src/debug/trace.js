@@ -1,7 +1,14 @@
-import {$} from 'katsu-curry'
 import {xtrace} from '../core/xtrace'
-import {debugWrap, wrap} from './wrap'
+import {__wrap} from './wrap'
 
-/* istanbul ignore next */
-export const debugTrace = debugWrap(xtrace)
-export const __debugTrace = wrap($, xtrace)
+// this is largely for testing, but is exported for convenience
+/**
+ * @method trace
+ * @namespace xtrace.debug.custom
+ * @param {function} fn - a function to set as the side-effect
+ * @param {*} a - first param to log (or whatever is being passed in as the side-effect)
+ * @param {*} b - second param to log (or whatever)
+ * @returns {*} b - whatever b parameter was
+ * @public
+ */
+export const __trace = __wrap(xtrace)

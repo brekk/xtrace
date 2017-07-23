@@ -24,16 +24,22 @@
       "text-summary"
     ],
     "exclude": [
-      "node_modules",
-      "config",
+      "docs",
       "coverage",
+      "config",
+      "node_modules",
       "src/*.spec.js",
+      "src/core/xtrace.js",
+      "src/core/trace.js",
       "src/index.js",
+      "src/*/index.js",
+      "src/fp/*.js",
       "xtrace.js",
       "xtrace.es.js"
     ],
     "include": [
       "src/*.js",
+      "src/**/*.js",
       "!src/*.spec.js"
     ],
     "all": true,
@@ -44,11 +50,13 @@
   },
   "scripts": {
     "dependencies": "depcheck",
-    "readme": "documentation readme README.md -s \"API\" src/trace.js",
+    "graph": "madge src --json | jayin \"_.toPairs(x).map(([k, v]) => ([k,_.map(v, (y) => (y.indexOf('node_modules') > -1 ? y.substr(y.indexOf('node_modules') + 13) : y))])).map(([k, v]) => ([k.replace('/', '/\\n'),_.map(v, (y) => (y.replace('/', '/\\n')))])).filter(([k, v]) => !(k.indexOf('spec') > -1)).filter(([k, v]) => !(k.indexOf('css') > -1)).filter(([k, v]) => !(k.indexOf('fixture') > -1)).reduce((agg, [k, v]) => Object.assign({}, agg, {[k]: v}), {})\" | madge --stdin --image dependencies.svg",
+    "readme": "documentation readme README.md -s \"API\" src/index.js",
+    "docs": "documentation build src/index.js -f html -o docs",
     "lint": "npm run lint:src && npm run lint:jsdoc",
     "lint:src": "eslint src/*.js",
     "lint:jsdoc": "documentation lint src/index.js",
-    "test": "nyc npm run test:ava",
+    "test": "nyc ava src/*.spec.js",
     "test:ava": "ava src/*.spec.js",
     "build": "npm run build:main",
     "build:main": "rollup -c config/rollup.config.main.js",
@@ -56,7 +64,8 @@
     "precommit": "npm run due-diligence"
   },
   "dependencies": {
-    "katsu-curry": "^0.0.7"
+    "katsu-curry": "^0.0.7",
+    "ramda": "^0.24.1"
   },
   "devDependencies": {
     "ava": "^0.20.0",

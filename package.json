@@ -64,6 +64,7 @@
     "precommit": "npm run due-diligence"
   },
   "dependencies": {
+    "debug": "^2.6.8",
     "katsu-curry": "^0.0.7",
     "ramda": "^0.24.1"
   },

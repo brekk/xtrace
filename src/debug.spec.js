@@ -38,12 +38,12 @@ test(`exports`, (t) => {
 })
 
 /*
-normally:
+# normally:
 
 const log = debug('tagged:namespace')
 log('my info later') // only logs if DEBUG=tagged:namespace || DEBUG=tagged:* || DEBUG=*
 
-augmented with sideEffect:
+# augmented with sideEffect:
 
 const inspector = sideEffect(log) // implicit: aTag, fn, bTag
 const compositionLog = inspector($, I, $) // expects a, b tags
@@ -54,7 +54,7 @@ pipe(
   compositionLog(`output`) // partially apply the aTag
 )
 
-augmented with __debugEffect (this is intended to work with the debug module, but testing
+# augmented with __debugEffect (this is intended to work with the debug module, but testing
 side-effects is hard):
 
 const debugEffect = __debugEffect(require('debug'))

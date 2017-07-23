@@ -1,1 +1,2 @@
-export const map = (fn) => (functor) => functor.map(fn)
+import {curry} from 'katsu-curry'
+export const map = curry((fn, functor) => functor.map(fn))

@@ -34,7 +34,6 @@
       "src/index.js",
       "src/*/index.js",
       "src/fp/*.js",
-      "src/debug/*.js",
       "xtrace.js",
       "xtrace.es.js"
     ],
@@ -64,7 +63,8 @@
     "precommit": "npm run due-diligence"
   },
   "dependencies": {
-    "katsu-curry": "^0.0.7"
+    "katsu-curry": "^0.0.7",
+    "ramda": "^0.24.1"
   },
   "devDependencies": {
     "ava": "^0.20.0",

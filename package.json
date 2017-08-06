@@ -29,11 +29,11 @@
       "config",
       "node_modules",
       "src/*.spec.js",
-      "src/core/xtrace.js",
+      "src/*.fixture.js",
+      "src/core/index.js",
       "src/core/trace.js",
+      "src/core/xtrace.js",
       "src/index.js",
-      "src/*/index.js",
-      "src/fp/*.js",
       "xtrace.js",
       "xtrace.es.js"
     ],
@@ -49,24 +49,13 @@
     ]
   },
   "scripts": {
-    "dependencies": "depcheck",
-    "graph": "madge src --json | jayin \"_.toPairs(x).map(([k, v]) => ([k,_.map(v, (y) => (y.indexOf('node_modules') > -1 ? y.substr(y.indexOf('node_modules') + 13) : y))])).map(([k, v]) => ([k.replace('/', '/\\n'),_.map(v, (y) => (y.replace('/', '/\\n')))])).filter(([k, v]) => !(k.indexOf('spec') > -1)).filter(([k, v]) => !(k.indexOf('css') > -1)).filter(([k, v]) => !(k.indexOf('fixture') > -1)).reduce((agg, [k, v]) => Object.assign({}, agg, {[k]: v}), {})\" | madge --stdin --image dependencies.svg",
-    "readme": "documentation readme README.md -s \"API\" src/index.js",
-    "docs": "documentation build src/index.js -f html -o docs",
-    "lint": "npm run lint:src && npm run lint:jsdoc",
-    "lint:src": "eslint src/*.js",
-    "lint:jsdoc": "documentation lint src/index.js",
-    "test": "nyc ava src/*.spec.js",
-    "test:ava": "ava src/*.spec.js",
-    "build": "npm run build:main",
-    "build:main": "rollup -c config/rollup.config.main.js",
-    "due-diligence": "npm run lint && npm run test && npm run build && npm run readme",
-    "precommit": "npm run due-diligence"
+    "start": "nps",
+    "test": "nps test",
+    "care": "nps care",
+    "precommit": "nps care"
   },
   "dependencies": {
-    "debug": "^2.6.8",
-    "katsu-curry": "^0.0.7",
-    "ramda": "^0.24.1"
+    "katsu-curry": "^0.1.1"
   },
   "devDependencies": {
     "ava": "^0.20.0",
@@ -86,8 +75,12 @@
     "eslint-plugin-node": "^5.1.0",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "3.0.1",
+    "execa": "^0.8.0",
+    "f-utility": "^3.2.0",
     "husky": "0.14.3",
     "istanbul": "0.4.x",
+    "nps": "^5.7.0",
+    "nps-utils": "^1.3.0",
     "nyc": "^11.0.3",
     "rollup": "^0.43.0",
     "rollup-plugin-babili": "^3.1.0",
@@ -97,7 +90,8 @@
     "rollup-plugin-istanbul": "^1.1.0",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-progress": "^0.4.0"
+    "rollup-plugin-progress": "^0.4.0",
+    "strip-ansi": "^4.0.0"
   },
   "repository": "https://github.com/brekk/xtrace",
   "author": "brekk"

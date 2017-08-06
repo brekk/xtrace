@@ -1,31 +1,40 @@
-import __debug from 'debug'
-import {__effect} from './effect'
-import {__generate} from './generate'
-import {__trace} from './trace'
-import {__wrap} from './wrap'
+// import bug from 'debug'
+import {curry, $, I as identity, map, pipe} from 'f-utility'
+import {sideEffect} from '../core/side-effect'
 
-const [
-  effect,
-  generate,
-  trace,
-  wrap
-] = [
-  __effect,
-  __generate,
-  __trace,
-  __wrap
-].map((x) => x(__debug))
+/**
+ * makeInspectors with debug
+ * @method debug.makeInspectors
+ * @param {function} bug - a debugging function, ostensibly
+ * @param {strings[]} logList - a list of strings
+ * @returns {functions[]} inspector functions
+ * @public
+ * @example
+ * import bug from 'debug'
+ * import {debug} from 'xtrace'
+ * const [base, detail, verbose] = debug.makeInspectors(bug, [`mylib:0`, `mylib:1`, `mylib:2`])
+ * base(`a`, (x) => JSON.stringify(x, null, 2), {data: `cool`})
+ */
+/* istanbul ignore next */
+export const makeInspectors = curry((bug, logList) => pipe(
+  map(bug),
+  map((s) => sideEffect(s))
+)(logList))
 
-export const debug = {
-  effect,
-  generate,
-  wrap,
-  trace,
-  custom: {
-    effect: __effect,
-    wrap: __wrap,
-    trace: __trace,
-    generate: __generate
-  }
-}
-export default debug
+/**
+ * makeLoggers with debug
+ * @method debug.makeLoggers
+ * @param {function} bug - a debugging function, ostensibly
+ * @param {strings[]} logList - a list of strings
+ * @returns {functions[]} inspector functions
+ * @public
+ * @example
+ * import bug from 'debug'
+ * import {debug} from 'xtrace'
+ * const [base, detail, verbose] = debug.makeInspectors(bug, [`mylib:0`, `mylib:1`, `mylib:2`])
+ * base(`a`, {data: `cool`})
+ */
+export const makeLoggers = curry((bug, logList) => pipe(
+  map(bug),
+  map((s) => sideEffect(s, $, identity, $))
+)(logList))

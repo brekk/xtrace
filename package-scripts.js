@@ -23,8 +23,8 @@ module.exports = {
       jsdoc: `documentation lint src/index.js`
     },
     test: {
-      default: `nyc ava src/*.spec.js`,
-      ava: `ava src/*.spec.js`
+      default: `nyc ava src/*.spec.js *.spec.js`,
+      ava: `ava src/*.spec.js *.spec.js`
     },
     build: {
       default: `nps build.main`,

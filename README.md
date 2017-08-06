@@ -50,12 +50,11 @@ const verboseConditionalLoggerWhenMultiplyingBy5 = R.pipe(
 )
 ```
 
-Or, for convenience, just use the exported `debug` object (added `0.0.9`):
+Or, for convenience, just use the exported `debug` object (added `0.1.0`):
 
 ```js
 import {debug} from 'xtrace'
-const {generate} = debug
-const [trace, extra, wordVomit] = generate([`log:critical`, `log:info`,`log:verbose`], false)
+const [trace, extra, wordVomit] = debug.makeLoggers([`log:critical`, `log:info`,`log:verbose`])
 
 const reallyCerboseConditionalLoggerWhenMultiplyingBy5 = R.pipe(
   extra(`input!`),
@@ -68,26 +67,6 @@ const reallyCerboseConditionalLoggerWhenMultiplyingBy5 = R.pipe(
   extra(`output!`)
 )
 ```
-
-If you want to be able to inspect the values as they pass through, pass `true` as the second parameter to `generate`:
-
-```js
-const {generate} = debug
-const [extraInspect, wordVomitInspect] = generate([`log:info`,`log:verbose`], true)
-
-const reallyCerboseConditionalLoggerWhenMultiplyingBy5 = R.pipe(
-  extra(`type of input?`, (x) => typeof x), // add type inspection
-  R.map(
-    R.pipe(
-      wordVomit(`5 *`, (x) => x.toString()), // convert to string, for fun
-      multiply(5)
-    )
-  ),
-  extra(`output!`, someGlobalLogger) // ostensibly a more specific logger
-)
-```
-
-_NB: All of the stuff in the `debug` object can be derived from judicious application of `xtrace.debug.custom.generate`, please see the tests for more._
 
 #### API
 

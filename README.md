@@ -158,6 +158,46 @@ trace(`whatever`, 5) // logs 'whatever', 5
 
 Returns **any** whatever input is
 
+##### debug.makeInspectors
+
+makeInspectors with debug
+
+**Parameters**
+
+-   `bug` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a debugging function, ostensibly
+-   `logList` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;strings>** a list of strings
+
+**Examples**
+
+```javascript
+import bug from 'debug'
+import {debug} from 'xtrace'
+const [base, detail, verbose] = debug.makeInspectors(bug, [`mylib:0`, `mylib:1`, `mylib:2`])
+base(`a`, (x) => JSON.stringify(x, null, 2), {data: `cool`})
+```
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;functions>** inspector functions
+
+##### debug.makeLoggers
+
+makeLoggers with debug
+
+**Parameters**
+
+-   `bug` **[function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** a debugging function, ostensibly
+-   `logList` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;strings>** a list of strings
+
+**Examples**
+
+```javascript
+import bug from 'debug'
+import {debug} from 'xtrace'
+const [base, detail, verbose] = debug.makeInspectors(bug, [`mylib:0`, `mylib:1`, `mylib:2`])
+base(`a`, {data: `cool`})
+```
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;functions>** inspector functions
+
 #### Similar efforts:
 
 -   `composition-trace` - <https://github.com/stevemao/composition-trace>

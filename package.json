@@ -55,8 +55,7 @@
     "precommit": "nps care"
   },
   "dependencies": {
-    "katsu-curry": "^0.1.1",
-    "ramda": "^0.24.1"
+    "katsu-curry": "^0.1.1"
   },
   "devDependencies": {
     "ava": "^0.20.0",

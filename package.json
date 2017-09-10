@@ -1,6 +1,6 @@
 {
   "name": "xtrace",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "trace data when composing functions",
   "main": "xtrace.js",
   "reveal": true,
@@ -46,8 +46,7 @@
       "*.spec"
     ],
     "mapCoverage": true,
-    "moduleNameMapper": {
-    },
+    "moduleNameMapper": {},
     "moduleFileExtensions": [
       "js",
       "json"

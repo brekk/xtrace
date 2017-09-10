@@ -1,98 +1,111 @@
 {
   "name": "xtrace",
   "version": "0.1.0",
-  "description": "trace compositions",
-  "license": "ISC",
+  "description": "trace data when composing functions",
   "main": "xtrace.js",
   "reveal": true,
-  "ava": {
-    "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+  "scripts": {
+    "dependencies": "nps dependencies",
+    "readme": "nps readme",
+    "lint": "nps lint",
+    "test": "nps test",
+    "docs": "nps docs",
+    "bundle": "nps bundle",
+    "build": "nps build",
+    "precommit": "nps precommit"
   },
-  "nyc": {
-    "statements": 100,
-    "branches": 100,
-    "functions": 100,
-    "lines": 100,
-    "reporter": [
-      "lcov",
-      "json",
-      "html",
-      "text",
-      "text-summary"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brekk/xtrace.git"
+  },
+  "keywords": [
+    "trace",
+    "composition",
+    "functional composition",
+    "side effect",
+    "log"
+  ],
+  "author": "brekk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brekk/xtrace/issues"
+  },
+  "homepage": "https://github.com/brekk/xtrace#readme",
+  "jest": {
+    "modulePaths": [
+      "src"
     ],
-    "exclude": [
-      "docs",
-      "coverage",
-      "config",
+    "moduleDirectories": [
       "node_modules",
-      "src/*.spec.js",
-      "src/*.fixture.js",
-      "src/core/index.js",
-      "src/core/trace.js",
-      "src/core/xtrace.js",
-      "src/index.js",
-      "xtrace.js",
-      "xtrace.es.js"
+      "src"
     ],
-    "include": [
-      "src/*.js",
-      "src/**/*.js",
-      "!src/*.spec.js"
+    "coveragePathIgnorePatterns": [
+      "lib",
+      "test-helpers",
+      "xtrace",
+      "src/*.spec"
     ],
-    "all": true,
-    "check-coverage": true,
-    "require": [
-      "babel-register"
+    "mapCoverage": true,
+    "moduleNameMapper": {
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "testMatch": [
+      "<rootDir>/src/*.spec.(jsx|js)",
+      "<rootDir>/xtrace.integration.spec.js"
     ]
   },
-  "scripts": {
-    "start": "nps",
-    "test": "nps test",
-    "care": "nps care",
-    "precommit": "nps care"
-  },
   "dependencies": {
+    "f-utility": "^3.3.0",
     "katsu-curry": "^0.4.0"
   },
   "devDependencies": {
-    "ava": "^0.22.0",
-    "babel-plugin-istanbul": "^4.1.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^21.0.2",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-es2015-destructuring": "^6.23.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
-    "babel-register": "^6.24.1",
+    "babel-preset-fbjs": "^2.1.4",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chalk": "^2.1.0",
+    "depcheck": "^0.6.7",
     "documentation": "^5.3.1",
-    "eslint": "4.6.1",
-    "eslint-config-standard": "10.2.1",
-    "eslint-plugin-babel": "^4.1.1",
+    "eslint": "^4.6.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-ava": "^4.2.2",
+    "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-better": "^0.1.5",
-    "eslint-plugin-eslint-comments": "^1.0.2",
+    "eslint-plugin-eslint-comments": "^1.0.3",
     "eslint-plugin-fp": "^2.3.0",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-node": "^5.1.0",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "3.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-standard": "^3.0.1",
     "execa": "^0.8.0",
-    "f-utility": "^3.2.0",
-    "husky": "0.14.3",
-    "istanbul": "0.4.x",
-    "nps": "^5.7.0",
+    "husky": "^0.14.3",
+    "jayin": "^0.0.3",
+    "jest": "^21.0.2",
+    "jest-cli": "^21.0.2",
+    "nps": "^5.7.1",
     "nps-utils": "^1.3.0",
-    "nyc": "^11.0.3",
     "rollup": "^0.49.3",
-    "rollup-plugin-babili": "^3.1.0",
+    "rollup-plugin-alias": "^1.3.1",
+    "rollup-plugin-babel-minify": "^3.1.2",
     "rollup-plugin-buble": "^0.15.0",
     "rollup-plugin-cleanup": "^1.0.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-istanbul": "^1.1.0",
+    "rollup-plugin-commonjs": "^8.2.1",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-progress": "^0.4.0",
-    "strip-ansi": "^4.0.0"
-  },
-  "repository": "https://github.com/brekk/xtrace",
-  "author": "brekk"
+    "rollup-plugin-progress": "^0.4.0"
+  }
 }

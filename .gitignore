@@ -5,3 +5,5 @@ custom.js
 *.js.map
 .nyc_output
 docs
+.DS_Store
+lib

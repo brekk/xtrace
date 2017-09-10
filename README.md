@@ -98,6 +98,24 @@ trace(`input`, 5) // only logs if DEBUG env var (e.g. DEBUG=my:custom:debugger n
 
 Returns **any** whatever input is
 
+##### trace
+
+trace is the same as xtrace, only we applied the first parameter as console.log, for convenience
+
+**Parameters**
+
+-   `tag` **any** first value to pass to the console.log
+-   `input` **any** the return value, and the value passed to the console.log
+
+**Examples**
+
+```javascript
+import {trace} from 'xtrace'
+trace(`whatever`, 5) // logs 'whatever', 5
+```
+
+Returns **any** whatever input is
+
 ##### xtrace
 
 xtrace is the same as sideEffect, only we dropped the inspect parameter by passing identity
@@ -117,24 +135,6 @@ const debug = _debug(`my:custom:debugger`)
 const trace = xtrace(debug)
 // [...]
 trace(`input`, 5) // only logs if DEBUG env var (e.g. DEBUG=my:custom:debugger node this-file.js)
-```
-
-Returns **any** whatever input is
-
-##### trace
-
-trace is the same as xtrace, only we applied the first parameter as console.log, for convenience
-
-**Parameters**
-
--   `tag` **any** first value to pass to the console.log
--   `input` **any** the return value, and the value passed to the console.log
-
-**Examples**
-
-```javascript
-import {trace} from 'xtrace'
-trace(`whatever`, 5) // logs 'whatever', 5
 ```
 
 Returns **any** whatever input is

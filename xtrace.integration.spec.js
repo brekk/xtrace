@@ -1,4 +1,4 @@
-import test from 'ava'
+/* global test, expect */
 import execa from 'execa'
 
 const map = (fn) => (x) => x.map(fn)
@@ -10,8 +10,12 @@ const alterLines = map((line) => {
   parts.splice(-5, 1) // eslint-disable-line fp/no-mutating-methods
   return parts
 })
+const t = {
+  plan: (x) => expect.assertions(x),
+  deepEqual: (a, b) => expect(a).toEqual(b)
+}
 
-test(`makeInspectors`, (t) => {
+test(`makeInspectors`, () => {
   t.plan(8)
   return execa.shell(`DEBUG=x:* node ${process.cwd()}/xtrace.integration.fixture.js`)
     .then((x) => {

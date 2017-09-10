@@ -1,17 +1,18 @@
-import test from 'ava'
+/* global test */
 import {
   $,
   curry,
   I
 } from 'katsu-curry'
+import {t} from './test-helpers'
 import {sideEffect} from './core/side-effect'
 
-const is = curry((t, a, b) => t.is(a, b))
+const is = curry((isWrap, a, b) => isWrap(a, b))
 
-test(`sideEffect can function as a simple tagged iteratee`, (t) => {
+test(`sideEffect can function as a simple tagged iteratee`, () => {
   t.plan(7)
   t.is(typeof sideEffect, `function`)
-  const logger = sideEffect(is(t), $, I, $)
+  const logger = sideEffect(is(t.is), $, I, $)
   t.is(typeof logger, `function`)
   const inputs = [
     [`a`, `a0`],

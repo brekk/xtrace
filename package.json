@@ -41,9 +41,9 @@
     ],
     "coveragePathIgnorePatterns": [
       "lib",
-      "test-helpers",
+      "helpers",
       "xtrace",
-      "src/*.spec"
+      "*.spec"
     ],
     "mapCoverage": true,
     "moduleNameMapper": {

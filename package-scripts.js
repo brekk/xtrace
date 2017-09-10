@@ -86,7 +86,7 @@ module.exports = {
     test: {
       description: `run all tests with coverage`,
       script: [
-        `jest src/*.spec.js --coverage`
+        `jest xtrace.integration.spec.js src/*.spec.js --coverage --coveragePathIgnorePatterns helpers`
       ].join(` `),
       unit: {
         description: `run unit tests`,

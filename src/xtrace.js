@@ -1,4 +1,4 @@
-import {I, $} from 'katsu-curry'
+import {I, $} from 'f-utility'
 
 import {sideEffect} from './side-effect'
 

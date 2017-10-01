@@ -1,1 +1,1 @@
-{"core/index.js":["core/side-effect.js","core/trace.js","core/xtrace.js"],"core/side-effect.js":["Ⓜ katsu-curry/katsu-curry.js"],"core/trace.js":["core/xtrace.js"],"debug/index.js":["Ⓜ f-utility/f-utility.js","core/side-effect.js"],"index.js":["Ⓜ katsu-curry/katsu-curry.js","core/index.js","debug/index.js"]}
+{"debug.js":["Ⓜ f-utility/f-utility.js","side-effect.js"],"index.js":["Ⓜ f-utility/f-utility.js","debug.js","side-effect.js","trace.js","xtrace.js"],"side-effect.js":["Ⓜ f-utility/f-utility.js"],"trace.js":["xtrace.js"]}

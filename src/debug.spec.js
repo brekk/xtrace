@@ -1,9 +1,9 @@
 /* global test */
-import {t} from 'germs/lib/test-helpers'
+import {t} from 'germs/lib/testing/helper'
 import {
   curry
-} from 'katsu-curry'
-import {makeLoggers} from './debug/index'
+} from 'f-utility'
+import {makeLoggers} from './debug'
 
 test(`makeLoggers`, () => {
   const injectLogger = curry((expectedA, expectedB, tag, z, d, inputA, inputB) => {

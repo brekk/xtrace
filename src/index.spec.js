@@ -1,11 +1,11 @@
 /* global test */
-import {t} from 'germs/lib/test-helpers'
+import {t} from 'germs/lib/testing/helper'
 import {
   $,
   curry,
   I
 } from 'katsu-curry'
-import {sideEffect} from './core/side-effect'
+import {sideEffect} from './side-effect'
 
 const is = curry((isWrap, a, b) => isWrap(a, b))
 

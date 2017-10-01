@@ -2,7 +2,7 @@ const germs = require(`germs`)
 const pkg = require(`./package.json`)
 
 const config = germs(pkg.name, {
-  readme: `documentation readme -s "API" src/*/*.js`,
+  readme: `documentation readme -s "API" src/*.js`,
   test: {
     description: `run all tests with coverage`,
     script: [

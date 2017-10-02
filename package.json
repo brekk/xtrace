@@ -57,7 +57,7 @@
     ]
   },
   "dependencies": {
-    "f-utility": "3.3.3",
+    "f-utility": "3.3.4",
     "katsu-curry": "^0.4.0"
   },
   "devDependencies": {

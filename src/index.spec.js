@@ -1,11 +1,16 @@
 /* global test */
-import {t} from 'germs/lib/test-helpers'
+// import * as g from 'germs'
 import {
   $,
   curry,
   I
-} from 'katsu-curry'
-import {sideEffect} from './core/side-effect'
+} from 'f-utility'
+import {sideEffect} from './side-effect'
+/* global expect */
+const t = {
+  plan: (x) => expect.assertions(x),
+  is: (a, b) => expect(a).toBe(b)
+}
 
 const is = curry((isWrap, a, b) => isWrap(a, b))
 

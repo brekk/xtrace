@@ -1,4 +1,4 @@
-import {curry} from 'katsu-curry'
+import {curry} from 'f-utility'
 
 /**
  * The high-level abstraction for identity-closure side-effects

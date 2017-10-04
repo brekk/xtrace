@@ -1,9 +1,8 @@
-import {I as identity, $ as __} from 'katsu-curry'
-import * as _debug from './debug/index'
+import {makeLoggers, makeInspectors} from './debug'
+export const debug = {makeLoggers, makeInspectors}
 
-export const PLACEHOLDER = __
-export const $ = __
-export const I = identity
+export {I, $, PLACEHOLDER} from 'f-utility'
 
-export * from './core/index'
-export const debug = _debug
+export {sideEffect} from './side-effect'
+export {xtrace} from './xtrace'
+export {trace} from './trace'

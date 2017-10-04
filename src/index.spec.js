@@ -4,7 +4,7 @@ import {
   $,
   curry,
   I
-} from 'katsu-curry'
+} from 'f-utility'
 import {sideEffect} from './side-effect'
 /* global expect */
 const t = {

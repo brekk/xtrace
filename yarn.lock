@@ -2195,9 +2195,9 @@ enhance-visitors@^1.0.0:
   dependencies:
     lodash "^4.13.1"
 
-entrust@0.0.7:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/entrust/-/entrust-0.0.7.tgz#3bfaa9b373ea8397e077ce209eca76b11aea4128"
+entrust@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/entrust/-/entrust-0.0.10.tgz#c8a20361480f661dd6cf7094a3263334baf61764"
   dependencies:
     katsu-curry "^0.4.0"
 
@@ -2635,11 +2635,11 @@ extsprintf@1.3.0, extsprintf@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
 
-f-utility@3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/f-utility/-/f-utility-3.3.3.tgz#10b2352de179008df7b7458b92cd2eae8ea3688f"
+f-utility@3.3.4:
+  version "3.3.4"
+  resolved "https://registry.yarnpkg.com/f-utility/-/f-utility-3.3.4.tgz#fcd23b5e32a0be5c0e4fcd3eaa8b72f5ed24c10e"
   dependencies:
-    entrust "0.0.7"
+    entrust "0.0.10"
     fantasy-land "^3.3.0"
     fast.js "^0.1.1"
     flatmap-fast "^3.0.0"
@@ -4488,6 +4488,10 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
 
+ncp@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ncp/-/ncp-2.0.0.tgz#195a21d6c46e361d2fb1281ba38b91e9df7bdbb3"
+
 nested-error-stacks@^1.0.0, nested-error-stacks@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-1.0.2.tgz#19f619591519f096769a5ba9a86e6eeec823c3cf"
@@ -4573,6 +4577,21 @@ npmlog@^4.0.2:
     console-control-strings "~1.1.0"
     gauge "~2.7.3"
     set-blocking "~2.0.0"
+
+nps-utils@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/nps-utils/-/nps-utils-1.4.0.tgz#d5dad0fb1d2b03ed650d81d9da71a07d836af5ca"
+  dependencies:
+    any-shell-escape "^0.1.1"
+    common-tags "^1.4.0"
+    concurrently "^3.4.0"
+    cpy-cli "^1.0.1"
+    cross-env "^3.1.4"
+    is-windows "^1.0.0"
+    mkdirp "^0.5.1"
+    ncp "2.0.0"
+    opn-cli "^3.1.0"
+    rimraf "^2.6.1"
 
 nps-utils@^1.3.0:
   version "1.3.0"

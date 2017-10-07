@@ -9,6 +9,14 @@ import {xtrace} from './xtrace'
  * @public
  * @example
  * import {trace} from 'xtrace'
- * trace(`whatever`, 5) // logs 'whatever', 5
+ * const tag = `item moved!`
+ * const input = `pseudo:event:name`
+ * // running it straight like this, there's less utility:
+ * trace(tag, input) // prints: item moved! pseudo:event:name
+ * // but if we imagine it as part of a composed function pipeline
+ * // pipe(
+ * //   moveLeft, // (ostensibly this would move the element to the left)
+ * //   trace(`moved left`) // it becomes more useful as a reusable logger
+ * // )
  */
 export const trace = xtrace(console.log) // eslint-disable-line no-console

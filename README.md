@@ -126,12 +126,22 @@ The high-level abstraction for identity-closure side-effects
 **Examples**
 
 ```javascript
-import {sideEffect, $, I} from 'xtrace'
-import _debug from 'debug'
-const debug = _debug(`my:custom:debugger`)
-const trace = sideEffect(debug, $, I, $)
-// [...]
-trace(`input`, 5) // only logs if DEBUG env var (e.g. DEBUG=my:custom:debugger node this-file.js)
+import {sideEffect} from 'xtrace'
+const effect = console.log
+const tag = `item moved!`
+const inspect = ({name: x, y}) => `${name} - [${x}, ${y}]`
+const input = {
+  name: `pseudo:event:name`,
+  x: 1,
+  y: 2
+}
+// running it straight like this, there's less utility:
+sideEffect(effect, tag, inspect, input) // prints: item moved! pseudo:event:name - [1, 2]
+// but if we imagine it as part of a composed function pipeline
+// pipe(
+//   moveLeft, // (ostensibly this would move the element to the left)
+//   sideEffect(effect, tag, inspect) // it becomes more useful as a reusable logger
+// )
 ```
 
 Returns **any** whatever input is
@@ -149,14 +159,22 @@ trace is the same as xtrace, only we applied the first parameter as console.log,
 
 ```javascript
 import {trace} from 'xtrace'
-trace(`whatever`, 5) // logs 'whatever', 5
+const tag = `item moved!`
+const input = `pseudo:event:name`
+// running it straight like this, there's less utility:
+trace(tag, input) // prints: item moved! pseudo:event:name
+// but if we imagine it as part of a composed function pipeline
+// pipe(
+//   moveLeft, // (ostensibly this would move the element to the left)
+//   trace(`moved left`) // it becomes more useful as a reusable logger
+// )
 ```
 
 Returns **any** whatever input is
 
 ##### xtrace
 
-xtrace is the same as sideEffect, only we dropped the inspect parameter by passing identity
+xtrace is the same as sideEffect, only we drop the inspect parameter by passing identity
 
 **Parameters**
 
@@ -168,11 +186,16 @@ xtrace is the same as sideEffect, only we dropped the inspect parameter by passi
 
 ```javascript
 import {xtrace} from 'xtrace'
-import _debug from 'debug'
-const debug = _debug(`my:custom:debugger`)
-const trace = xtrace(debug)
-// [...]
-trace(`input`, 5) // only logs if DEBUG env var (e.g. DEBUG=my:custom:debugger node this-file.js)
+const effect = console.log
+const tag = `item moved!`
+const input = `pseudo:event:name`
+// running it straight like this, there's less utility:
+xtrace(effect, tag, input) // prints: item moved! pseudo:event:name
+// but if we imagine it as part of a composed function pipeline
+// pipe(
+//   moveLeft, // (ostensibly this would move the element to the left)
+//   sideEffect(effect, tag) // it becomes more useful as a reusable logger
+// )
 ```
 
 Returns **any** whatever input is

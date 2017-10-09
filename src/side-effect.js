@@ -10,12 +10,22 @@ import {curry} from 'f-utility'
  * @returns {*} - whatever input is
  * @public
  * @example
- * import {sideEffect, $, I} from 'xtrace'
- * import _debug from 'debug'
- * const debug = _debug(`my:custom:debugger`)
- * const trace = sideEffect(debug, $, I, $)
- * // [...]
- * trace(`input`, 5) // only logs if DEBUG env var (e.g. DEBUG=my:custom:debugger node this-file.js)
+ * import {sideEffect} from 'xtrace'
+ * const effect = console.log
+ * const tag = `item moved!`
+ * const inspect = ({name: x, y}) => `${name} - [${x}, ${y}]`
+ * const input = {
+ *   name: `pseudo:event:name`,
+ *   x: 1,
+ *   y: 2
+ * }
+ * // running it straight like this, there's less utility:
+ * sideEffect(effect, tag, inspect, input) // prints: item moved! pseudo:event:name - [1, 2]
+ * // but if we imagine it as part of a composed function pipeline
+ * // pipe(
+ * //   moveLeft, // (ostensibly this would move the element to the left)
+ * //   sideEffect(effect, tag, inspect) // it becomes more useful as a reusable logger
+ * // )
  */
 export const sideEffect = curry(
   function __sideEffect(effect, tag, inspect, input) {

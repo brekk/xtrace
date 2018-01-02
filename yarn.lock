@@ -2825,9 +2825,9 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
 
-f-utility@3.3.5:
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/f-utility/-/f-utility-3.3.5.tgz#67380e79889f989c16306d124a56bee9b76e9b21"
+f-utility@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/f-utility/-/f-utility-3.5.1.tgz#2586c0f495beeaf32cd288faafde2985671109e2"
   dependencies:
     entrust "0.0.11"
     fantasy-land "3.4.0"

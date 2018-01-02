@@ -58,7 +58,7 @@
     ]
   },
   "dependencies": {
-    "f-utility": "3.3.5"
+    "f-utility": "^3.5.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

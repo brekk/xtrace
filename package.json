@@ -58,7 +58,8 @@
     ]
   },
   "dependencies": {
-    "f-utility": "^3.5.1"
+    "f-utility": "^3.5.1",
+    "katsu-curry": "^0.7.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

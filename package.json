@@ -86,7 +86,7 @@
     "eslint-plugin-eslint-comments": "^2.0.1",
     "eslint-plugin-fp": "^2.3.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-promise": "3.6.0",
     "eslint-plugin-react": "^7.5.1",
     "eslint-plugin-standard": "^3.0.1",

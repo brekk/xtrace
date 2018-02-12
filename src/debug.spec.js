@@ -1,5 +1,5 @@
-/* global test, expect */
-
+/* global test */
+import {t} from 'jest-t-assert'
 // import {t} from 'germs'
 import {
   curry
@@ -10,15 +10,13 @@ import {makeLoggers} from './debug'
 //   plan: (x) => expect.assertions(x),
 //   is: (a, b) => expect(a).toBe(b)
 // }
-
 test(`makeLoggers`, () => {
-  expect.assertions(2)
   // t.plan(2)
   const injectLogger = curry((expectedA, expectedB, tag, z, d, inputA, inputB) => {
-    // t.is(expectedA, inputA)
-    expect(expectedA).toBe(inputA)
-    // t.is(expectedB, inputB)
-    expect(expectedB).toBe(inputB)
+    t.is(expectedA, inputA)
+    // expect(expectedA).toBe(inputA)
+    t.is(expectedB, inputB)
+    // expect(expectedB).toBe(inputB)
     return inputB
   })
   const injected = injectLogger(100, `word`)

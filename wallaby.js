@@ -1,35 +1,27 @@
-const pkg =- require('./pack.json')
+const pkg = require(`./package.json`)
+
 module.exports = function configureWallaby(wallaby) {
   return {
-    name: `xtrace`,
+    name: pkg.name,
+    debug: true,
     files: [
-      `src/**/*.js`,
-      `src/*.js`
+      `src/*.js`,
+      `!src/*.spec.js`
     ],
 
     tests: [
-      `tests/**/*.spec.js`,
-      `tests/*.spec.js`
+      `src/*.spec.js`
     ],
 
     env: {
       type: `node`,
-      kind: `electron`
+      runner: `node`
     },
 
     compilers: {
       '**/*.js': wallaby.compilers.babel()
     },
 
-    testFramework: `ava`,
-
-    setup: function setupWallaby() {
-      require(`babel-polyfill`)
-    },
-
-    debug: true,
-    filesWithNoCoverageCalculated: [
-      // `src/core/fs.js`
-    ]
+    testFramework: `jest`
   }
 }

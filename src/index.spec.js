@@ -5,12 +5,8 @@ import {
   curry,
   I
 } from 'f-utility'
+import {t} from 'jest-t-assert'
 import {sideEffect} from './side-effect'
-/* global expect */
-const t = {
-  plan: (x) => expect.assertions(x),
-  is: (a, b) => expect(a).toBe(b)
-}
 
 const is = curry((isWrap, a, b) => isWrap(a, b))
 

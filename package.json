@@ -39,13 +39,6 @@
       "node_modules",
       "src"
     ],
-    "coveragePathIgnorePatterns": [
-      "lib",
-      "helpers",
-      "xtrace",
-      "katsu-curry",
-      "*.spec"
-    ],
     "mapCoverage": true,
     "moduleNameMapper": {},
     "moduleFileExtensions": [
@@ -58,7 +51,7 @@
     ]
   },
   "dependencies": {
-    "f-utility": "^3.5.1"
+    "f-utility": "^3.5.5"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -94,8 +87,9 @@
     "germs": "^0.1.9",
     "husky": "^0.14.3",
     "jayin": "^0.0.3",
-    "jest": "^22.0.4",
+    "jest": "^22.2.2",
     "jest-cli": "^22.0.4",
+    "jest-t-assert": "^0.2.0",
     "nps": "^5.7.1",
     "nps-utils": "^1.5.0",
     "rollup": "^0.53.3",

@@ -1,6 +1,6 @@
 {
   "name": "xtrace",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "trace data when composing functions",
   "main": "xtrace.js",
   "reveal": true,

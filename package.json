@@ -1,6 +1,6 @@
 {
   "name": "xtrace",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "trace data when composing functions",
   "license": "ISC",
   "repository": "brekk/xtrace",

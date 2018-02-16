@@ -7,3 +7,4 @@ custom.js
 docs
 .DS_Store
 lib
+node_modules

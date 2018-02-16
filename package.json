@@ -2,8 +2,10 @@
   "name": "xtrace",
   "version": "0.1.9",
   "description": "trace data when composing functions",
+  "license": "ISC",
+  "repository": "brekk/xtrace",
+  "author": "brekk",
   "main": "xtrace.js",
-  "reveal": true,
   "scripts": {
     "dependencies": "nps dependencies",
     "readme": "nps readme",
@@ -14,10 +16,6 @@
     "build": "nps build",
     "precommit": "nps precommit"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/brekk/xtrace.git"
-  },
   "keywords": [
     "trace",
     "composition",
@@ -25,31 +23,6 @@
     "side effect",
     "log"
   ],
-  "author": "brekk",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/brekk/xtrace/issues"
-  },
-  "homepage": "https://github.com/brekk/xtrace#readme",
-  "jest": {
-    "modulePaths": [
-      "src"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ],
-    "mapCoverage": true,
-    "moduleNameMapper": {},
-    "moduleFileExtensions": [
-      "js",
-      "json"
-    ],
-    "testMatch": [
-      "<rootDir>/src/*.spec.(jsx|js)",
-      "<rootDir>/xtrace.integration.spec.js"
-    ]
-  },
   "dependencies": {
     "f-utility": "^3.5.5"
   },
@@ -101,5 +74,66 @@
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-progress": "^0.4.0"
-  }
+  },
+  "clinton": {
+    "inherit": false,
+    "rules": {
+      "cli": "error",
+      "editorconfig": "off",
+      "filename-case": [
+        "error",
+        {
+          "case": "kebabCase"
+        }
+      ],
+      "gulp": [
+        "error",
+        "optional"
+      ],
+      "keywords": "error",
+      "license": "ISC",
+      "max-depth": "warn",
+      "no-callback": "error",
+      "no-dup-keywords": "error",
+      "no-empty-keywords": "error",
+      "no-git-merge-conflict": "error",
+      "pkg-dependency-order": "error",
+      "pkg-description": "off",
+      "pkg-engine": "off",
+      "pkg-main": "error",
+      "pkg-name": "error",
+      "pkg-normalize": "warn",
+      "pkg-property-order": "error",
+      "pkg-schema": "error",
+      "pkg-shorthand-repository": "error",
+      "pkg-user-order": "error",
+      "readme": "error",
+      "test-script": "error",
+      "use-travis": "off",
+      "valid-version": "error",
+      "ava": "off",
+      "gitignore": "error",
+      "xo": "off"
+    }
+  },
+  "jest": {
+    "modulePaths": [
+      "src"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "mapCoverage": true,
+    "moduleNameMapper": {},
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "testMatch": [
+      "<rootDir>/src/*.spec.(jsx|js)",
+      "<rootDir>/xtrace.integration.spec.js"
+    ]
+  },
+  "reveal": true
 }

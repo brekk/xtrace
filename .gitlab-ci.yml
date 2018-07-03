@@ -20,10 +20,9 @@ cache:
 test:
   script:
    - yarn install
-   - nps test
+   - node_modules/.bin/nps test
 
 # test_db:
 #   script:
 #    - npm install
 #    - node ./specs/start.js ./specs/db-postgres.spec.js
-

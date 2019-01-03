@@ -57,7 +57,7 @@
     "rollup-plugin-progress": "^0.4.0"
   },
   "name": "xtrace",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "trace data when composing functions",
   "main": "xtrace.js",
   "module": "xtrace.es.js",

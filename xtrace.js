@@ -1,1 +1,26 @@
-'use strict';Object.defineProperty(exports,'__esModule',{value:!0});var fUtility=require('f-utility'),sideEffect=fUtility.curry(function(a,b,c,d){return a(b,c(d)),d}),makeInspectors=fUtility.curry(function(a,b){return fUtility.pipe(fUtility.map(a),fUtility.map(function(a){return sideEffect(a)}))(b)}),makeLoggers=fUtility.curry(function(a,b){return fUtility.pipe(fUtility.map(a),fUtility.map(function(a){return sideEffect(a,fUtility.$,fUtility.I,fUtility.$)}))(b)}),xtrace=sideEffect(fUtility.$,fUtility.$,fUtility.I,fUtility.$),trace=xtrace(console.log),debug={makeLoggers:makeLoggers,makeInspectors:makeInspectors};exports.debug=debug,exports.sideEffect=sideEffect,exports.xtrace=xtrace,exports.trace=trace,exports.I=fUtility.I,exports.$=fUtility.$,exports.PLACEHOLDER=fUtility.PLACEHOLDER;
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var katsuCurry = require('katsu-curry');
+
+var sideEffect = katsuCurry.curry(function (fn, a) {
+  fn(a);
+  return a;
+});
+var taggedSideEffect = katsuCurry.curry(function (fn, a, b) {
+  fn(a, b);
+  return b;
+});
+var trace = taggedSideEffect(console.log);
+var scopedSideEffect = katsuCurry.curry(function (fn, fn2, a, b) {
+  fn(a, fn2(b));
+  return b;
+});
+var scopedTrace = scopedSideEffect(console.log);
+
+exports.sideEffect = sideEffect;
+exports.taggedSideEffect = taggedSideEffect;
+exports.trace = trace;
+exports.scopedSideEffect = scopedSideEffect;
+exports.scopedTrace = scopedTrace;

@@ -1,28 +1,27 @@
-/* global test */
-// import * as g from 'germs'
-import {
-  $,
-  curry,
-  I
-} from 'f-utility'
-import {t} from 'jest-t-assert'
-import {sideEffect} from './side-effect'
+import { sideEffect, taggedSideEffect, scopedSideEffect } from "./index"
 
-const is = curry((isWrap, a, b) => isWrap(a, b))
+test(`sideEffect`, () => {
+  sideEffect(a => expect(a).toEqual(`a`), `a`)
+})
 
-test(`sideEffect can function as a simple tagged iteratee`, () => {
-  t.plan(7)
-  t.is(typeof sideEffect, `function`)
-  const logger = sideEffect(is(t.is), $, I, $)
-  t.is(typeof logger, `function`)
-  const inputs = [
-    [`a`, `a0`],
-    [`b`, `b1`],
-    [`c`, `c2`],
-    [`d`, `d3`],
-    [`e`, `e4`]
-  ]
-  inputs.map(([k, v], i) => {
-    logger(k + i, v)
-  })
+test(`taggedSideEffect`, () => {
+  taggedSideEffect(
+    (a, b) => {
+      expect(a).toEqual(`a`)
+      expect(b).toEqual(`b`)
+    },
+    `a`,
+    `b`
+  )
+})
+test(`scopedSideEffect`, () => {
+  scopedSideEffect(
+    (a, b) => {
+      expect(a).toEqual(`a`)
+      expect(b).toEqual(2)
+    },
+    x => x * 2,
+    `a`,
+    1
+  )
 })

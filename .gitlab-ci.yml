@@ -20,7 +20,7 @@ cache:
 test:
   script:
    - yarn install
-   - node_modules/.bin/nps test
+   - node_modules/.bin/nps care
 
 # test_db:
 #   script:

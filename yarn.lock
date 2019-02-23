@@ -5015,10 +5015,10 @@ npmlog@^4.0.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
-nps@^5.9.3:
-  version "5.9.3"
-  resolved "https://registry.yarnpkg.com/nps/-/nps-5.9.3.tgz#5e50f13b7b44e8c8e972d5c843454f97cc63d3a3"
-  integrity sha512-ocOFKD3dlvWPQz4h1qaeh+dzj0NALrZbCN80+o2RBPXrVUC+Se62MF6t/xnd4ZYzym6We6RAU+SvOp0WCeyjlQ==
+nps@^5.9.4:
+  version "5.9.4"
+  resolved "https://registry.yarnpkg.com/nps/-/nps-5.9.4.tgz#31924d9a82a834efbeb98618f6f1dd6f0dcbbff3"
+  integrity sha512-4RFiRTG0/hwcdTqfhwOT2sxtC7JEElyZDTsa3DIhf4ekFFL/87y2JvPAIRZJWVnEp+tG2a7qzv0eJE4NgJLlDg==
   dependencies:
     arrify "^1.0.1"
     chalk "^2.0.1"

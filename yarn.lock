@@ -2125,10 +2125,10 @@ doctrine@^2.1.0:
   dependencies:
     esutils "^2.0.2"
 
-documentation@^9.1.1:
-  version "9.1.1"
-  resolved "https://registry.yarnpkg.com/documentation/-/documentation-9.1.1.tgz#20da422be82a04a2d356d720d55d4cad25bb235b"
-  integrity sha512-oSTBZXBlrJpRMXCzXdd1j8CQ+miJHTIZeEZ3oCU/NgIImKTBG3nHIPPSZRPA35cJGWN9L3uQK7eF6vS82QJlgg==
+documentation@^9.3.0:
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/documentation/-/documentation-9.3.0.tgz#c69ff7746786fb23c5e044b64a3457c2e4e7fdbb"
+  integrity sha512-HGHuYATpJz2VKI7TjuAnUFrE+xzLWzp2ttz1oRBPVYPTtzGCSZE6RDiYYCyErOW18BtxCA8o7jzt+VpcWv/ZCg==
   dependencies:
     "@babel/core" "^7.1.2"
     "@babel/generator" "^7.1.3"
@@ -2167,7 +2167,7 @@ documentation@^9.1.1:
     github-slugger "1.2.0"
     glob "^7.1.2"
     globals-docs "^2.4.0"
-    highlight.js "^9.12.0"
+    highlight.js "^9.15.5"
     js-yaml "^3.10.0"
     lodash "^4.17.10"
     mdast-util-inject "^1.1.0"
@@ -3248,10 +3248,10 @@ he@^1.1.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-highlight.js@^9.12.0:
-  version "9.13.1"
-  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.13.1.tgz#054586d53a6863311168488a0f58d6c505ce641e"
-  integrity sha512-Sc28JNQNDzaH6PORtRLMvif9RSn1mYuOoX3omVjnb0+HbpPygU2ALBI0R/wsiqCb4/fcp07Gdo8g+fhtFrQl6A==
+highlight.js@^9.15.5:
+  version "9.15.6"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.15.6.tgz#72d4d8d779ec066af9a17cb14360c3def0aa57c4"
+  integrity sha512-zozTAWM1D6sozHo8kqhfYgsac+B+q0PmsjXeyDrYIHHcBN0zTVT66+s2GW1GZv7DbyaROdLXKdabwS/WqPyIdQ==
 
 home-or-tmp@^2.0.0:
   version "2.0.0"

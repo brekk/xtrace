@@ -45,7 +45,7 @@
     "nps": "^5.9.3",
     "prettier": "^1.14.3",
     "prettier-eslint": "^8.8.2",
-    "rollup": "^0.66.6",
+    "rollup": "^1.12.4",
     "rollup-plugin-alias": "^1.4.0",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-cleanup": "^3.0.0",
